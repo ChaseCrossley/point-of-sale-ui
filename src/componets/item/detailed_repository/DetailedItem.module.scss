@@ -1,0 +1,61 @@
+@use "../../../css/style" as s;
+@use "../../../css/utillities"as u;
+
+$transitionTime: 1s;
+@mixin fade {
+  -webkit-transition: all $transitionTime ;
+  -moz-transition: all $transitionTime ;
+  -ms-transition: all $transitionTime ;
+  -o-transition: all $transitionTime ;
+  transition: all $transitionTime;
+}
+
+.background {
+  @include fade;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .6);
+  z-index: 100000000000;
+}
+
+.container {
+  @include fade;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.repository{
+  @include fade;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: #ffffff;
+  width: fit-content;
+  height: fit-content;
+  justify-self: center;
+  align-self: center;
+  //background-color: #0d1f11;
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding: 1%;
+  margin: 10px 6%;
+
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+}
