@@ -1,0 +1,30 @@
+@use "../../../css/style" as s;
+@use "../../../css/utillities" as u;
+
+.container{
+  border: s.$border-color 3px solid;
+  border-radius: 6px;
+  padding: 2%;
+  margin: 1% 0;
+}
+
+.image{
+  max-width: 300px;
+}
+
+.text{
+  text-align: center;
+}
+
+.name {
+  margin-top:5px;
+  size: 1.5rem;
+}
+
+.ingredient{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 30ch;
+}
+
