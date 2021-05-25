@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+}
+
+.quantityContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.quantity {
+  padding: 2px;
+  height: fit-content;
+  width: fit-content;
+}
