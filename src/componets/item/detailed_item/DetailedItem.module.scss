@@ -31,11 +31,11 @@ $transitionTime: 1s;
   align-content: center;
 }
 
-.repository{
+.item {
   @include fade;
   border: 1px solid black;
   border-radius: 5px;
-  color: #ffffff;
+  color: s.$primary-text-color;
   width: fit-content;
   height: fit-content;
   justify-self: center;
@@ -48,7 +48,11 @@ $transitionTime: 1s;
   align-content: center;
   padding: 1%;
   margin: 10px 6%;
+  background: s.$primary-bg-color;
+}
 
+.image {
+  width: 600px;
 }
 
 .dot {
