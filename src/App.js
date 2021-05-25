@@ -1,30 +1,31 @@
 import './App.css';
+import GridItem from "./componets/item/item";
 import fetchUtils from "./utils/fetchUtils";
 import Grid from "./componets/grid/grid";
-import CardItem from "./componets/item/card_item/cardItem";
+import {useState} from "react";
 
-let items = [];
-
-// fetchUtils.get("http://0.0.0.0:3724/api/item/retrieveAll").then((data) => items = data).catch((error) => {
-//     items = "An error occurred"
-//     console.log(error)
-// }).finally(() => console.log(items))
-
-items = [];
-
-for (let i = 0; i < 10; i++) {
-    let ingredients = []
-    for (let j = 0; j < 5; j++) {
-        ingredients.push("ingredient" + j)
-    }
-    items.push((<CardItem name={"item " + i} ingredients={ingredients} imageUrl={"https://source.unsplash.com/collection/75315648/1600x900"} key={i.toString()}/>))
-}
 
 function App() {
+
+    const [gridItems, setGridItems] = useState([]);
+
+
+    if (gridItems.length <= 0) {
+        fetchUtils.get("/item/retrieveAll").then((data) => {
+            return data.json();
+        }).then((json) => {
+            const newItems = []
+            json.forEach((item) => newItems.push((<GridItem key={item.id} item={item}/>)))
+            setGridItems(newItems)
+        }).catch((error) => {
+            console.log("error: " + error)
+        })
+    }
+
     return (
         <div className="App">
             <Grid numberOfColumns={3}>
-                {items}
+                {gridItems}
             </Grid>
         </div>
     );
